@@ -1,0 +1,24 @@
+---
+title: "A map and a date"
+author: "Claudiu Forgaci"
+date: "2023-07-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(leaflet)
+```
+
+This map shows 10 playground locations in Amsterdam.
+
+```{r pressure, echo=FALSE}
+playgrounds_df <- data.frame(
+  lat = c(52.36645, 52.36479, 52.36732, 52.36391, 52.36928, 52.36280, 52.36807, 52.36597, 52.36692, 52.36541),
+  lng = c(4.88110, 4.87865, 4.87932, 4.87986, 4.88058, 4.88215, 4.88177, 4.87951, 4.88194, 4.88238)
+)
+
+playgrounds_df |> 
+  leaflet() |> 
+  addTiles() |> 
+  addMarkers()
+```
